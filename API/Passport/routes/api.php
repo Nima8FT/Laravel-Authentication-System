@@ -7,7 +7,9 @@ use App\Http\Controllers\API\Auth\LogoutController;
 use App\Http\Controllers\API\Auth\RegisterController;
 use App\Http\Controllers\API\Auth\DeleteAccountController;
 use App\Http\Controllers\API\Auth\Mail\VerifyMailController;
+use App\Http\Controllers\API\Auth\Password\ResetPasswordController;
 use App\Http\Controllers\API\Auth\Mail\SendMailNotificationController;
+use App\Http\Controllers\API\Auth\Password\SendPasswordNotificationController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -22,5 +24,11 @@ Route::group(['middleware' => ['auth:api']], function () {
 
     //verified email route
     Route::post('email/verification-notification', [SendMailNotificationController::class, 'sendNotification'])->name('mail.notification');
-    Route::post('/email/verify/{id}/{hash}', [VerifyMailController::class, 'verifyMail'])->name('verification.verify');
+    Route::post('email/verify/{id}/{hash}', [VerifyMailController::class, 'verifyMail'])->name('verification.verify');
+});
+
+//route for forgot password
+Route::group(['middleware' => ['guest']], function () {
+    Route::post('forgot-password', [SendPasswordNotificationController::class, 'passwordNotification'])->name('password.notification');
+    Route::post('reset-password', [ResetPasswordController::class, 'resetPassword'])->name('password.reset');
 });
