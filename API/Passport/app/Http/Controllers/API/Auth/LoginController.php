@@ -34,7 +34,7 @@ class LoginController extends Controller
         } catch (\Exception $e) {
             return response()->json([
                 'status' => 0,
-                'error' => 'Failed to register user. Please try again later.',
+                'error' => 'Failed to login user. Please try again later.',
                 'message' => $e->getMessage(),
             ], 500);
         }
