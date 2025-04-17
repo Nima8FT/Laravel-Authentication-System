@@ -1,0 +1,31 @@
+🗒️ Note
+
+This repository is dedicated to implementing comprehensive authentication systems in Laravel for both API and web-based applications. The goal is to cover a wide range of authentication and security features, with clean architecture, proper error handling, and complete API documentation using Swagger.
+
+🔐 Authentication Features:
+
+    User registration & login
+
+    Logout (single & multi-device)
+
+    Account deletion
+
+    "Remember Me" support
+
+    Email verification
+
+    Password reset & forgot password
+
+    Social login (OAuth2)
+
+    Two-Factor Authentication (2FA)
+
+    Session & token management
+
+    User profile management
+
+    CAPTCHA integration
+
+    Full error handling
+
+    Swagger for API documentation
