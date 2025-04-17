@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'default' => env('MAIL_MAILER', 'log'),
+    'default' => env('MAIL_MAILER', 'mailersend'),
 
     /*
     |--------------------------------------------------------------------------
@@ -95,6 +95,10 @@ return [
                 'postmark',
             ],
             'retry_after' => 60,
+        ],
+
+        'mailersend' => [
+            'transport' => 'mailersend',
         ],
 
     ],
