@@ -16,8 +16,8 @@ Route::group(['prefix' => 'auth', 'middleware' => ['guest']], function () {
     Route::post('login', [LoginController::class, 'login'])->name('login');
 });
 
-Route::group(['prefix' => 'auth', 'middleware' => ['auth:sanctum']], function () {
+Route::group(['prefix' => ['auth'], 'middleware' => ['auth:sanctum']], function () {
     Route::post('logout', action: [LogoutController::class, 'logout'])->name('logout');
-    Route::get('profile', [RegisterController::class, 'profile'])->name('profile');
+    Route::get(uri: 'profile', action: [RegisterController::class, 'profile'])->name('profile');
     Route::post('deleteAccount', [DeleteAccountController::class, 'deleteAccount'])->name('delete.account');
 });
