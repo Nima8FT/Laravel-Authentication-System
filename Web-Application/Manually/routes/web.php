@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\BrowseSessionController;
 use App\Http\Controllers\Auth\SocialLoginController;
 use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
@@ -27,6 +28,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::post('logout', action: [LogoutController::class, 'logout'])->name('logout');
     Route::post('delete-account', action: [LogoutController::class, 'deleteAccount'])->name('delete.account');
+    Route::post('logout-other-device', [LogoutController::class, 'logoutOtherDevice'])->name('logout.other.device');
 
     //verify mail
     Route::post('email/verification-notification', [MailController::class, 'notification'])->name('verification.send');
@@ -46,6 +48,9 @@ Route::group(['middleware' => 'auth'], function () {
     //change password in profile
     Route::get('change-password', [PasswordController::class, 'changePasswordPage'])->name('change.password.show');
     Route::post('change-password', [PasswordController::class, 'changePassword'])->name('change.password');
+
+    //browse session
+    Route::get('browse-session', [BrowseSessionController::class, 'browseSession'])->name('browse.session');
 });
 
 

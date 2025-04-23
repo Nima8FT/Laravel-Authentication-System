@@ -19,7 +19,7 @@
                     class="block px-4 py-2 rounded-lg hover:bg-[#415a77] transition">
                     🔐 Change Password
                 </a>
-                <a href="#" class="block px-4 py-2 rounded-lg hover:bg-[#415a77] transition">
+                <a href="{{route('browse.session')}}" class="block px-4 py-2 rounded-lg hover:bg-[#415a77] transition">
                     🖥️ Browse Session
                 </a>
             </nav>

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Jenssegers\Agent\Agent;
 use Illuminate\Http\Request;
+use App\Models\DeviceSession;
 use App\Http\Requests\LoginRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -28,6 +30,19 @@ class LoginController extends Controller
             }
 
             $request->session()->regenerate();
+
+            //browse session 
+            $agent = new Agent();
+            $user = Auth::user();
+
+            DeviceSession::create([
+                'user_id' => $user->id,
+                'session_id' => session()->getId(),
+                'browser' => $agent->browser(),
+                'os' => $agent->platform(),
+                'device' => $agent->device(),
+                'is_mobile' => $agent->isMobile()
+            ]);
 
             return redirect()->route('dashboard')->with("success", "login successfully");
         } catch (\Exception $e) {

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
+use Jenssegers\Agent\Agent;
 use Illuminate\Http\Request;
+use App\Models\DeviceSession;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -26,6 +28,19 @@ class RegisterController extends Controller
             $user = User::create($inputs);
 
             Auth::login($user);
+
+            //browse session
+            $agent = new Agent();
+            $user = Auth::user();
+
+            DeviceSession::create([
+                'user_id' => $user->id,
+                'session_id' => session()->getId(),
+                'browser' => $agent->browser(),
+                'os' => $agent->platform(),
+                'device' => $agent->device(),
+                'is_mobile' => $agent->isMobile()
+            ]);
 
             return redirect()->route('dashboard')->with('success', 'register successfully');
         } catch (\Exception $e) {
