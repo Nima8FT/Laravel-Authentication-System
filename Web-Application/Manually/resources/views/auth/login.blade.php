@@ -30,7 +30,7 @@
                 </div>
 
                 <div class="text-[#e0e1dd] flex justify-between">
-                    <a href="#ss"
+                    <a href="{{route('password.request')}}"
                         class="cursor-pointer font-medium underline hover:opacity-85 transition duration-300 ease-in-out">Forgot
                         Password</a>
                     <a href="{{route('register.store')}}"
