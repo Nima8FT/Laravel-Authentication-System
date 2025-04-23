@@ -20,7 +20,7 @@ Route::post('login', [LoginController::class, 'login'])->name('login');
 
 Route::group(['middleware' => 'auth:api'], function () {
     Route::post('logout', [LogoutController::class, 'logout'])->name('logout');
-    Route::post('deleteAcconut', [DeleteAccountController::class, 'deleteAcconut'])->name('delete.acconut');
+    Route::delete('deleteAcconut', [DeleteAccountController::class, 'deleteAcconut'])->name('delete.acconut');
 
     //email verification
     Route::post('/email/verification-notification', [SendMailNotificationController::class, 'mailNotification'])->name('mail.notification');
