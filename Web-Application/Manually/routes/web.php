@@ -8,6 +8,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\PasswordController;
+use App\Http\Controllers\Auth\ProfileController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\TwoFactorAuthenticationController;
 
@@ -37,6 +38,14 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('disable-2fa', [TwoFactorAuthenticationController::class, 'disable2FA'])->name('disable.2fa');
     Route::get('secret-code-show', [TwoFactorAuthenticationController::class, 'secretCodeShow'])->name('secret.code.show');
     Route::post('secret-code', [TwoFactorAuthenticationController::class, 'secretCode'])->name('secret.code');
+
+    //profile
+    Route::get('profile', [ProfileController::class, 'showProfile'])->name('profile.show');
+    Route::put('profile', [ProfileController::class, 'updateProfile'])->name('profile.update');
+
+    //change password in profile
+    Route::get('change-password', [PasswordController::class, 'changePasswordPage'])->name('change.password.show');
+    Route::post('change-password', [PasswordController::class, 'changePassword'])->name('change.password');
 });
 
 

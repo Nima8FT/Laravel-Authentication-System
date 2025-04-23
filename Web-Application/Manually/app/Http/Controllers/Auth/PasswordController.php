@@ -6,6 +6,8 @@ use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ChangePasswordRequest;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Auth\Events\PasswordReset;
@@ -53,5 +55,24 @@ class PasswordController extends Controller
         return $status === Password::PasswordReset
             ? redirect()->route('login')->with('status', __($status))
             : back()->withErrors(['email' => [__($status)]]);
+    }
+
+    public function changePasswordPage()
+    {
+        $user = Auth::user();
+        return view('auth.change-password', compact('user'));
+    }
+
+    public function changePassword(ChangePasswordRequest $request)
+    {
+        $inputs = $request->all();
+
+        $user = Auth::user();
+
+        $user->update([
+            'password' => Hash::make($inputs['password']),
+        ]);
+
+        return redirect()->route('dashboard')->with('success', 'Password updated successfully.');
     }
 }
