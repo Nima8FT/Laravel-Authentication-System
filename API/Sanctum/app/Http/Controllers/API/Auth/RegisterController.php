@@ -10,6 +10,46 @@ use App\Http\Requests\RegisterRequest;
 
 class RegisterController extends Controller
 {
+    /**
+     * @OA\Post(
+     *     path="/api/register",
+     *     tags={"Authentication"},
+     *     summary="Register a new user",
+     *     description="Register a new user with name, email, and password and return a user object with authentication token.",
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(
+     *             required={"name", "email", "password","password_confirmation"},
+     *             @OA\Property(property="name", type="string", example="nima malakooti"),
+     *             @OA\Property(property="email", type="string", format="email", example="nima.8ak@gmail.com"),
+     *             @OA\Property(property="password", type="string", format="password", example="12345678"),
+     *             @OA\Property(property="password_confirmation", type="string", format="password", example="12345678")
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="User successfully registered and token provided",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="status", type="integer", example=1),
+     *             @OA\Property(property="message", type="string", example="User registered successfully."),
+     *             @OA\Property(property="user", type="object",
+     *                 @OA\Property(property="name", type="string", example="nima malakooti"),
+     *                 @OA\Property(property="email", type="string", example="nima.8ak@gmail.com"),
+     *                 @OA\Property(property="token", type="string", example="your-token-here")
+     *             )
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=500,
+     *         description="Internal server error",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="status", type="integer", example=0),
+     *             @OA\Property(property="error", type="string", example="Failed to register user. Please try again later."),
+     *             @OA\Property(property="message", type="string", example="Exception message")
+     *         )
+     *     )
+     * )
+     */
     public function register(RegisterRequest $request)
     {
         try {

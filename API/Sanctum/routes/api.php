@@ -11,13 +11,13 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
-Route::group(['prefix' => 'auth', 'middleware' => ['guest']], function () {
+Route::group(['middleware' => ['guest']], function () {
     Route::post('register', [RegisterController::class, 'register'])->name('register');
     Route::post('login', [LoginController::class, 'login'])->name('login');
 });
 
-Route::group(['prefix' => ['auth'], 'middleware' => ['auth:sanctum']], function () {
+Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('logout', action: [LogoutController::class, 'logout'])->name('logout');
     Route::get(uri: 'profile', action: [RegisterController::class, 'profile'])->name('profile');
-    Route::post('deleteAccount', [DeleteAccountController::class, 'deleteAccount'])->name('delete.account');
+    Route::delete('deleteAccount', [DeleteAccountController::class, 'deleteAccount'])->name('delete.account');
 });
