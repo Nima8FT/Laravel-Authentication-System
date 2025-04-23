@@ -45,6 +45,7 @@
                     {{ $message }}
                     @enderror
                 </p>
+                {{-- captcha scction --}}
                 <div class="mt-8">
                     <button type="submit"
                         class="border border-[#e0e1dd] font-medium w-full p-2 rounded-md bg-[#e0e1dd] cursor-pointer hover:opacity-85 transition duration-300 ease-in-out text-black">Login</button>
