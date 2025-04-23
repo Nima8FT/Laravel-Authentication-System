@@ -1,12 +1,14 @@
 <?php
 
+use App\Http\Controllers\Auth\SocialLoginController;
+use Illuminate\Support\Facades\Route;
+use Laravel\Socialite\Facades\Socialite;
+use App\Http\Controllers\Auth\MailController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
-use App\Http\Controllers\Auth\MailController;
 use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\DashboardController;
-use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
@@ -32,9 +34,12 @@ Route::group(['middleware' => 'auth'], function () {
 
 Route::group(['middleware' => 'guest'], function () {
     //forgot password
-    // Route::get('forgot-password', [PasswordController::class, 'forgotPasswordPage'])->name('password.request');
     Route::get('forgot-password-page', [PasswordController::class, 'forgotPasswordPage'])->name('password.request');
     Route::post('forgot-password', [PasswordController::class, 'forgotPasswordNotification'])->name('password.email');
     Route::get('reset-password/{token}', [PasswordController::class, 'resetPasswordPage'])->name('password.reset');
     Route::post('reset-password', [PasswordController::class, 'resetPassword'])->name('password.update');
+
+    //social login
+    Route::get('/auth/github/redirect', [SocialLoginController::class, 'redirect'])->name('github.redirect');
+    Route::get('/auth/github/callback', [SocialLoginController::class, 'callback'])->name('github.callback');
 });
