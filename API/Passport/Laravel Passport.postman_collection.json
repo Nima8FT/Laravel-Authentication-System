@@ -1,0 +1,338 @@
+{
+	"info": {
+		"_postman_id": "9aa6f0d5-b395-476e-b3fb-5c6de9f9bb6f",
+		"name": "Laravel Passport",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26260450"
+	},
+	"item": [
+		{
+			"name": "register",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"nima\",\n    \"email\":\"nima@yahoo.com\",\n    \"password\":\"12345678\",\n    \"password_confirmation\":\"12345678\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/register",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"nima@yahoo.com\",\n    \"password\":\"12345678\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "logout",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5ZWJlZTVjNS0zNzI5LTRkMWItOTFjZC01ZjUzM2JiNDgzMWEiLCJqdGkiOiJhM2VkNjg2ODBjYzQyMTI2NWU5NTk5YTM4MzVjNGEwYzc5MzM0YTY1Yjc4MmI4ZGQ5ZmVkYThhNmRhN2M2Y2UyMDFlOThmOGEzNmY4MGY2OSIsImlhdCI6MTc0NTQyNzQ4My4xODAzNjgsIm5iZiI6MTc0NTQyNzQ4My4xODAzNywiZXhwIjoxNzc2OTYzNDgzLjE3OTEwMywic3ViIjoiMiIsInNjb3BlcyI6W119.jqA7XFOEt9bYnDOYEZtbObz6leTjiu7GMVheg6whuEIBqbwwP38HK20mJWjKIc9Ay05oxyBaUtJN85GMN4KSrj7EjU5ECjUSYie60sQyBijylebdjXqdcKtzCH3Fj0pWrB4xhnzhv2DPf8Z2-7qLF-tzcT0zlajdc1wFF-tu0ZGHBBKSnrPewQ5facitX_xWY9_lj9kY4dhVjLumyrTAt5czocq4cQwkQBAs5Sgo6MUtSvc47b5NqWn-fBFO5bR1T5o51UnjZD9_KJOxNMfdvGoLCDWBI4RB2guhR4yGpswwJIziajXjYKPYcJAIz87nPk-E1w8pngYDMV9-9yFGdIrV82lMtJh_igQyZCtyB9I9Si2z0EDffOKCIP3dkTiQ7ps9cS9ILws2c93vhRK8DGSuFupriOq9XCxhV4jeIf0cdrxFvXlf-ctyMqe7sqnes1p90qQhEm0KWySAOWMsovcsbswtP6yxbqLAowrz8EUhveU7cAJQxiOP-5Qkr3feQuH_x_PY_9YnGmPkXGy_B9GMdSMtkbvzaA0LRACpXNvsjFFETyvtL0CKVE21r44SCB7B7xPLYBcONk-Pak7RvNTCKfs77kJcj3bO-8nYocVVP4v79wybkoqOl3c1RTjO3Bz8sDkSI3-e2CxF4x6lfSTEa8J-C0Et6jCJLyrYSXE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/logout",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Send Mail Notification",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5ZWJlZTVjNS0zNzI5LTRkMWItOTFjZC01ZjUzM2JiNDgzMWEiLCJqdGkiOiJjMWRmOTAyMWM5NzJjOWY2YWU3NGMyZDdjZWM0Y2U0MzNhZjlmYjkwNjQwZWMwZGJlODY3MDBkMTVjMjM3YTg1ZGUyNWM1YzNmODgxNGZjNCIsImlhdCI6MTc0NTQyODI0Mi4xNjU0NCwibmJmIjoxNzQ1NDI4MjQyLjE2NTQ0MiwiZXhwIjoxNzc2OTY0MjQyLjE1OTM5OCwic3ViIjoiMiIsInNjb3BlcyI6W119.eqJd1MK8zi0k40H7wlJBWvD_F36YgmnISqm8GQmb1cMoTmB4jzMbhamOR-igmsfXQPRmKYhe9BNcvOauLC4LbwNryR2eyKXa6kIKVB42G8RHi6i8wi-CinYxA_vV7L3VFLRFpOxql_GBk5XAcmhO80zlCXMh5hi1IITDbsnM4HKWRCGr8hUxzA4sWeNGNEFnxuYPAGClsrI7ncgaqH6nDCr-TwTE0GltEZiB9fpMjGPTgYwgtNc2ydii4suOkAW0JO6g0OfuRqi2HFJ7MdfBjxoIHTtHdrx4_QiqOAb1mrrv8ICPJiP7DudAIHPHvh7fU9BnvpReH3KjUevymrFoGynpp7FEtS6x3d5yP-KoRULgWo0fwlwVgC9sVzjrvUx0lAkomtyScPOLGvVBl6w0pi2yR_WpM3JV8T-BDAJrBJ6g82lwoi2Qucw0-pql2-qwZAubam4LHTDI74Lo648BWtNqep3-0_pZgQltPTbYdNRdFNC7U-OnsCejWl90M6nIfvVZ9GjoToLFe6dGMCARtj7v-rCq37M8QikS6HHBR0ywTlSYVjN87iyrNNJ0lSx99afAQYfL7-PTQieb0SiikONn1lmhmG4d_kwDgR3FB8_KsjNRyjNcM_1MRQV3sumOkzm0jEkpavaEYufeIPDoTAt2-0o8uPi0zg7EpqvpBYE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/email/verification-notification",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"email",
+						"verification-notification"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Verify Mail",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5ZWJlZTVjNS0zNzI5LTRkMWItOTFjZC01ZjUzM2JiNDgzMWEiLCJqdGkiOiJjMWRmOTAyMWM5NzJjOWY2YWU3NGMyZDdjZWM0Y2U0MzNhZjlmYjkwNjQwZWMwZGJlODY3MDBkMTVjMjM3YTg1ZGUyNWM1YzNmODgxNGZjNCIsImlhdCI6MTc0NTQyODI0Mi4xNjU0NCwibmJmIjoxNzQ1NDI4MjQyLjE2NTQ0MiwiZXhwIjoxNzc2OTY0MjQyLjE1OTM5OCwic3ViIjoiMiIsInNjb3BlcyI6W119.eqJd1MK8zi0k40H7wlJBWvD_F36YgmnISqm8GQmb1cMoTmB4jzMbhamOR-igmsfXQPRmKYhe9BNcvOauLC4LbwNryR2eyKXa6kIKVB42G8RHi6i8wi-CinYxA_vV7L3VFLRFpOxql_GBk5XAcmhO80zlCXMh5hi1IITDbsnM4HKWRCGr8hUxzA4sWeNGNEFnxuYPAGClsrI7ncgaqH6nDCr-TwTE0GltEZiB9fpMjGPTgYwgtNc2ydii4suOkAW0JO6g0OfuRqi2HFJ7MdfBjxoIHTtHdrx4_QiqOAb1mrrv8ICPJiP7DudAIHPHvh7fU9BnvpReH3KjUevymrFoGynpp7FEtS6x3d5yP-KoRULgWo0fwlwVgC9sVzjrvUx0lAkomtyScPOLGvVBl6w0pi2yR_WpM3JV8T-BDAJrBJ6g82lwoi2Qucw0-pql2-qwZAubam4LHTDI74Lo648BWtNqep3-0_pZgQltPTbYdNRdFNC7U-OnsCejWl90M6nIfvVZ9GjoToLFe6dGMCARtj7v-rCq37M8QikS6HHBR0ywTlSYVjN87iyrNNJ0lSx99afAQYfL7-PTQieb0SiikONn1lmhmG4d_kwDgR3FB8_KsjNRyjNcM_1MRQV3sumOkzm0jEkpavaEYufeIPDoTAt2-0o8uPi0zg7EpqvpBYE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/email/verify/2/a410347aabe0039597cb405f771f043d411e4167?expires=1745431850&signature=23fbb6d834d136765894fe4b0f8a19fbfd78bbe6316c0955e7285f88b66dc64c",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"email",
+						"verify",
+						"2",
+						"a410347aabe0039597cb405f771f043d411e4167"
+					],
+					"query": [
+						{
+							"key": "expires",
+							"value": "1745431850"
+						},
+						{
+							"key": "signature",
+							"value": "23fbb6d834d136765894fe4b0f8a19fbfd78bbe6316c0955e7285f88b66dc64c"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Account",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5ZWJlZTVjNS0zNzI5LTRkMWItOTFjZC01ZjUzM2JiNDgzMWEiLCJqdGkiOiIyMTQ4ZTI0MmIxMDExMmU3Y2I5ZGNhYzJkYWJkODI5MTMzOWM3YzcyNWQzMTQ1M2EwZWJmODc4NTdhODc4MWZhMWRiNDdiOTk3OWY1MTBjYSIsImlhdCI6MTc0NTQyODkyNi4wODMwNzUsIm5iZiI6MTc0NTQyODkyNi4wODMwNzcsImV4cCI6MTc3Njk2NDkyNi4wODIxMTQsInN1YiI6IjMiLCJzY29wZXMiOltdfQ.uXxWBB00s7quUbiCBV7btvIL2CCCAjwUtWYTWJncHKmD-DkJB0GfDmGX3-aM6RmuRjk073Vb8bXoUSlTEJK92XA39e1XA5YDkcF9ZTsmhmrq_rJstN3ZkB5GVg8Wlxlars8bRff3QrkGPP_pzY0ziGwJZbb-hCSzitQcu5kRuxpWSfDZ_5DMHGaah1e5rV4XtB5LYJu2ESLKM1zQhAkbU8m5WD2YgbgUxmxtzUlLtD21EqlLqTabuhi3NP0mv-Sp3VlFKRF_cgRJMSgscg3j2zzVnziTytU55qL3P0IAqAi0Wpgxzs9IQV85Ibq6niNlYgiYdHzLx4yJqKD7WpOtnUIHiRO3CmaDL_LL--CTC3vqaKbjRFG5AYdub_P87yA0t44DVxZerOWfu0NklaoG9pQqE3VvrjDE1ABZUeHHPEULpPVucN6MG0cSEPnANhxY29VNrlaQUuojI1zgY61U-Qh-QZXbHwWJVrCLNu4hup98d5YCRHHqSflNij2o7zzo4MDdi7fWTNOD0Ox3rJ89Lve3E8t4YBNYDLlPTY4ukqkiSWdzsuDEDCn1aVnFnq8GLixMz3uAt_9ugRedvwfaN3lx4lyf-jLBSVERFbKReFAy-VcQj4ObkpXeTO631mlO0QyJZkadXyQo62F0JNAgRYvgFZLDHzk6JKpmaJUsej4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/deleteAccount",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"deleteAccount"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Forgot Password",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"nima.8ak@gmail.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/forgot-password",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"forgot-password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reset Password",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"token\":\"9bc7282d568dd8c3e1ab7b3036434cb7c9ce2872342febe07613016f3729b423\",\n    \"email\":\"nima.8ak@gmail.com\",\n    \"password\":\"09138014541\",\n    \"password_confirmation\":\"09138014541\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/reset-password",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"reset-password"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
