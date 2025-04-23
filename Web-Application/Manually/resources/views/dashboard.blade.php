@@ -77,7 +77,7 @@
                 {{-- Two Factor Authentication --}}
                 <div class="bg-[#1b263b] rounded-xl shadow">
                     @if (!$user->google2fa_secret)
-                    <form method="GET" action="#">
+                    <form method="GET" action="{{route('enable.2fa.show')}}">
                         @csrf
                         <button type="submit"
                             class="w-full cursor-pointer px-6 py-3 border border-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition ease-in-out duration-300">
@@ -85,7 +85,7 @@
                         </button>
                     </form>
                     @else
-                    <form method="POST" action="#">
+                    <form method="POST" action="{{route('disable.2fa')}}">
                         @csrf
                         <button type="submit"
                             class="w-full cursor-pointer px-6 py-3 border border-red-600 text-white font-semibold rounded-lg hover:bg-red-700 transition ease-in-out duration-300">

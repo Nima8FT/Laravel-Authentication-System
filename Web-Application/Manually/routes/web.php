@@ -9,6 +9,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\TwoFactorAuthenticationController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -21,7 +22,7 @@ Route::get('login', [LoginController::class, 'create'])->name('login');
 Route::post('login', [LoginController::class, 'store'])->name('login.store');
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('dashboard', [DashboardController::class, 'index'])->middleware('2fa')->name('dashboard');
 
     Route::post('logout', action: [LogoutController::class, 'logout'])->name('logout');
     Route::post('delete-account', action: [LogoutController::class, 'deleteAccount'])->name('delete.account');
@@ -29,6 +30,13 @@ Route::group(['middleware' => 'auth'], function () {
     //verify mail
     Route::post('email/verification-notification', [MailController::class, 'notification'])->name('verification.send');
     Route::get('email/verify/{id}/{hash}', [MailController::class, 'verify'])->name('verification.verify');
+
+    //verify two factor authentication
+    Route::get('enable-2fa-show', [TwoFactorAuthenticationController::class, 'enable2FAShow'])->name('enable.2fa.show');
+    Route::post('enable-2fa', [TwoFactorAuthenticationController::class, 'enable2FA'])->name('enable.2fa');
+    Route::post('disable-2fa', [TwoFactorAuthenticationController::class, 'disable2FA'])->name('disable.2fa');
+    Route::get('secret-code-show', [TwoFactorAuthenticationController::class, 'secretCodeShow'])->name('secret.code.show');
+    Route::post('secret-code', [TwoFactorAuthenticationController::class, 'secretCode'])->name('secret.code');
 });
 
 
