@@ -27,23 +27,23 @@ This repository implements all major Laravel authentication packages for both AP
 
 ### 2. Features
 
-**API Authentication:**
-    - Laravel Passport (OAuth2)
-    - Laravel Sanctum (token-based SPA auth)
-    - JSON Web Tokens (JWT) via tymondesigns/jwt-auth
-    
-**Web Authentication:**
-    - Laravel Fortify (backend auth services)
-    - Laravel Starter Kit (prebuilt UI scaffolding)
-    - Manual implementation (custom controllers, middleware)
-    
-**Common Auth Features:**
-    - Register, Login, Logout, Delete Account
-    - Remember Me, Email Verification, Password Reset
-    - Social Login (e.g. Google, Facebook)
-    - Two-Factor Authentication (2FA)
-    - Session Browsing & “Logout Other Devices”
-    - User Profile Management, CAPTCHA protection 
+**🔐 API Authentication**
+- **Laravel Passport** – OAuth2-based full-featured API authentication
+- **Laravel Sanctum** – Lightweight SPA token authentication
+- **JWT** – Using `tymondesigns/jwt-auth` for stateless APIs
+
+**🧭 Web Authentication**
+- **Fortify** – Backend auth logic (no UI)
+- **Starter Kit** – Prebuilt Blade or Vue scaffolding
+- **Manual** – Fully custom controllers & middleware
+
+**💡 Common Features**
+- User registration, login, logout, and deletion
+- "Remember Me", email verification, password reset
+- Social login (Google, Facebook)
+- Two-Factor Authentication (2FA)
+- Session management (“Logout Other Devices”)
+- Profile management, CAPTCHA protection
     
 ---
 
