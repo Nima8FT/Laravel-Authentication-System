@@ -39,7 +39,7 @@
                 </div>
             </form>
             <div class="mt-4 flex justify-between items-center gap-4">
-                <form action="#" method="GET" class="w-full">
+                <form action="{{route('github.redirect')}}" method="GET" class="w-full">
                     <button
                         class="border border-[#e0e1dd] text-[#e0e1dd] w-full p-2 rounded-md font-medium cursor-pointer hover:opacity-85 transition duration-300 ease-in-out hover:bg-[#e0e1dd] hover:text-[#1b263b]">With
                         Github</button>

@@ -42,11 +42,11 @@ class RegisterController extends Controller
                 'is_mobile' => $agent->isMobile()
             ]);
 
-            return redirect()->route('dashboard')->with('success', 'register successfully');
+            return redirect()->route('dashboard')->with('success', 'Registered successfully.');
         } catch (\Exception $e) {
             return redirect()
                 ->route('register.create')
-                ->with('error', 'not register please try again' . $e->getMessage());
+                ->with('error', 'Registration failed. Please try again. ' . $e->getMessage());
         }
     }
 }

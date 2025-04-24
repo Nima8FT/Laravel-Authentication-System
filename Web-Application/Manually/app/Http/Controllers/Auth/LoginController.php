@@ -34,12 +34,12 @@ class LoginController extends Controller
             $verification = $response->json();
 
             if (!isset($verification['success']) || $verification['success'] !== true) {
-                return back()->withErrors(['error' => 'captcha is not correct']);
+                return back()->withErrors(['error' => 'The captcha is incorrect.']);
             }
 
             if (!Auth::attempt($credentials, $remember)) {
                 return back()->withErrors([
-                    'email' => 'The provided credentials do not match our records.',
+                    'email' => 'These credentials do not match our records.',
                 ])->onlyInput('email');
             }
 
@@ -58,11 +58,11 @@ class LoginController extends Controller
                 'is_mobile' => $agent->isMobile()
             ]);
 
-            return redirect()->route('dashboard')->with("success", "login successfully");
+            return redirect()->route('dashboard')->with("success", "Logged in successfully.");
         } catch (\Exception $e) {
             return redirect()
                 ->route('login.create')
-                ->with('error', 'not login please try again' . $e->getMessage());
+                ->with('error', 'Login failed. Please try again. ' . $e->getMessage());
         }
     }
 }
